@@ -9,8 +9,9 @@ import { Component } from '@angular/core';
 export class PersonasComponent{
 
   private deshabilitar!:boolean
-  mensaje:string = 'No se ha agregado a ninguna persona'
+  mensaje:string = ''
   titulo:string = "Ingeniero"
+  mostrar:boolean = false
 
   public setEstadoBoton(estado:boolean = false):void{
     this.deshabilitar = estado
@@ -22,6 +23,7 @@ export class PersonasComponent{
   }
 
   public agregarPersona():void{
+    this.mostrar = true
     this.mensaje = "Persona agregada"
   }
 
