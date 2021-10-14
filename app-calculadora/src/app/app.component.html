@@ -9,7 +9,12 @@
       <label for="operando_b" class="form-label">Operando B</label>
       <input type="number" class="form-control" id="operando_b" [(ngModel)]='operandoB' name="operandoB">
     </div>
-    <button type="submit" class="btn btn-primary" (click)="sumar()">Sumar</button>
+    <div class="d-flex justify-content-around align-items-center">
+      <button type="button" class="btn btn-primary" (click)="sumar()">Sumar</button>
+      <button type="button" class="btn btn-danger" (click)="restar()">Restar</button>
+      <button type="button" class="btn btn-warning" (click)="multiplicar()">Multiplicar</button>
+      <button type="button" class="btn btn-info" (click)="dividir()">Dividir</button>
+    </div>
   </form>
   <p>Resultado: <span>{{resultado}}</span></p>
 </div>
