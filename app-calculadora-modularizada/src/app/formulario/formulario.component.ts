@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
-export class FormularioComponent implements OnInit {
+export class FormularioComponent{
 
-  constructor() { }
+  operandoA!:number
+  operandoB!:number
 
-  ngOnInit(): void {
+  mostrar():void{
+    console.log(this.operandoA)
+    console.log(this.operandoB)
   }
 
 }

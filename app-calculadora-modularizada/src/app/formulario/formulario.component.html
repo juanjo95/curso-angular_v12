@@ -1,1 +1,11 @@
-<p>formulario works!</p>
+<form>
+  <div class="form-group mb-3">
+    <label for="operando_a" class="form-label">Operando A</label>
+    <input type="number" class="form-control" id="operando_a" [(ngModel)]='operandoA' name="operandoA">
+  </div>
+  <div class="form-group mb-3">
+    <label for="operando_b" class="form-label">Operando B</label>
+    <input type="number" class="form-control" id="operando_b" [(ngModel)]='operandoB' name="operandoB">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="mostrar()">Sumar</button>
+</form>
