@@ -8,8 +8,8 @@ import { Persona } from '../persona.model';
 })
 export class PersonaComponent implements OnInit {
 
-  @Input() persona!:Persona
-  @Input() indice!:number
+  @Input() persona:Persona
+  @Input() indice:number
 
   constructor() { }
 
