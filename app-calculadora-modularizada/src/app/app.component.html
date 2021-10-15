@@ -1,5 +1,5 @@
 <div class="container mt-3">
   <h2>{{titulo}}</h2>
-  <app-formulario></app-formulario>
-  <app-resultado></app-resultado>
+  <app-formulario (resultadoSuma) = "procesarResultado($event)"></app-formulario>
+  <app-resultado [resultadoHijo] = "resultadoPadre"></app-resultado>
 </div>

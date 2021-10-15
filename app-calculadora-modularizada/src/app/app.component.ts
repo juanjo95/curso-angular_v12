@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   titulo = 'Aplicacion de calculadora modularizada';
+
+  resultadoPadre:number
+
+  public procesarResultado(resultado:number):void{
+    this.resultadoPadre = resultado
+  }
+
+
 }
