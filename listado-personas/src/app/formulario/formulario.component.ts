@@ -1,30 +1,27 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { LoggingService } from '../LoggingService.service';
 import { Persona } from '../persona.model';
+import { PersonasService } from '../personas.service';
 
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
   styleUrls: ['./formulario.component.css']
 })
-export class FormularioComponent{
-
-  @Output() personaCreada = new EventEmitter<Persona>()
-
-  /*nombreInput:string
-  apellidoInput:string*/
+export class FormularioComponent implements OnInit{
 
   /* ViewChild */
   @ViewChild('nombreInput') nombreInput: ElementRef
   @ViewChild('apellidoInput') apellidoInput: ElementRef
 
-  constructor(private loggingService:LoggingService){}
+  constructor(private loggingService:LoggingService, private personasService:PersonasService){}
+
+  /* Defina un ngOnInit() método para manejar cualquier tarea de inicialización adicional. */
+  ngOnInit(): void {}
 
   public agregarPersona():void{
     let persona1 = new Persona(this.nombreInput.nativeElement.value,this.apellidoInput.nativeElement.value)
-    this.loggingService.enviarMensajeConsola("Enviamos persona: "+persona1.nombre+" "+persona1.apellido)
-
-    this.personaCreada.emit(persona1)
+    this.personasService.agregarPersona(persona1)
   }
 
 }

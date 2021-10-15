@@ -1,23 +1,24 @@
 import { LoggingService } from './LoggingService.service';
 import { Persona } from './persona.model';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PersonasService } from './personas.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   titulo = 'Listado de personas'
 
   /* Declaramos un arreglo de tipo Persona (persona.model.ts) */
-  personas:Persona[] = [new Persona("Juan","Salgado"),new Persona("Carlos","Perez")]
+  personas:Persona[] = []
 
-  constructor(private LoggingService:LoggingService){}
+  constructor(private LoggingService:LoggingService,
+              private personasService:PersonasService){}
 
-  public personaAgregada(persona:Persona){
-    this.LoggingService.enviarMensajeConsola("Agregamos al arreglo la nueva persona: "+persona.nombre)
-    this.personas.push(persona)
+  /* Defina un ngOnInit() método para manejar cualquier tarea de inicialización adicional. */
+  ngOnInit(): void {
+    this.personas = this.personasService.personas
   }
-
 }
