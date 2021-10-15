@@ -1,13 +1,5 @@
-<form>
-  <div class="row">
-    <div class="form-group col-md-2">
-      <label for="nombre" class="visually-hidden">Nombre</label>
-      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" #nombreInput>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="apellido" class="visually-hidden">Apellido</label>
-      <input type="text" name="apellido" id="apellido" placeholder="apellido" class="form-control" #apellidoInput>
-    </div>
-    <button type="submit" class="btn btn-primary form-group col-md-2" (click)="agregarPersona()">Agregar</button>
-  </div>
+<form class="item" #my_form>
+  <input type="text" name="nombre" id="nombre" placeholder="Nombre" #nombreInput>
+  <input type="text" name="apellido" id="apellido" placeholder="apellido" #apellidoInput>
+  <button type="submit" (click)="agregarPersona()">+</button>
 </form>
