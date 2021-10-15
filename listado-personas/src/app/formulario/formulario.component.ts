@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Persona } from '../persona.model';
 
 @Component({
@@ -13,8 +13,12 @@ export class FormularioComponent{
   /*nombreInput:string
   apellidoInput:string*/
 
-  public agregarPersona(nombreInput:HTMLInputElement,apellidoInput:HTMLInputElement):void{
-    let persona1 = new Persona(nombreInput.value,apellidoInput.value)
+  /* ViewChild */
+  @ViewChild('nombreInput') nombreInput: ElementRef
+  @ViewChild('apellidoInput') apellidoInput: ElementRef
+
+  public agregarPersona():void{
+    let persona1 = new Persona(this.nombreInput.nativeElement.value,this.apellidoInput.nativeElement.value)
     this.personaCreada.emit(persona1)
   }
 
