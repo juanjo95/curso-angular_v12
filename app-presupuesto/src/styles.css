@@ -23,6 +23,17 @@ body {
 .red { color: #FF5049 !important; }
 .redfocus:focus { border: 1px solid #FF5049 !important; }
 
+/* QUITAR BOTONES DE LOS CAMPOS INPUT TIPO NUMBER */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .cabecero {
   height: 40vh;
   background-size: cover;
