@@ -1,0 +1,11 @@
+<div class="contenedor-agregar-nuevo">
+  <button class="boton-agregar-nuevo" (click)="agregar()">+</button>
+</div>
+
+<div class="box">
+  <app-persona *ngFor="let personaElemento of personas; let i = index" [persona]="personaElemento" [indice]="i"></app-persona>
+</div>
+
+<div class="box">
+  <app-formulario></app-formulario>
+</div>

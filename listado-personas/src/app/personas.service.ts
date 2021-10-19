@@ -17,4 +17,19 @@ export class PersonasService{
     this.personas.push(persona)
   }
 
+  public encontrarPersona(indice:number):Persona{
+    let persona:Persona = this.personas[indice]
+    return persona
+  }
+
+  public modificarPersona(index:number,persona:Persona):void{
+    let persona1 = this.personas[index]
+    persona1.nombre = persona.nombre
+    persona1.apellido = persona.apellido
+  }
+
+  public eliminarPersona(index:number):void{
+    this.personas.splice(index,1)
+  }
+
 }

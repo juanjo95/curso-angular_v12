@@ -1,0 +1,8 @@
+.boton-guardar,
+.boton-eliminar{
+  cursor: pointer;
+}
+
+.buttonRed{
+  background-color: #ff0000;
+}
