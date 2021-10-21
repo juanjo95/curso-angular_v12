@@ -1,20 +1,20 @@
+import { LoginService } from './login/login.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Persona } from './persona.model';
-import { Observable } from 'rxjs';
-
-
 @Injectable()
 export class DataServices{
 
-    constructor(private httpClient:HttpClient){}
+    constructor(private httpClient:HttpClient,
+                private loginService:LoginService){}
 
     /*Leer personas, como el metogo get nos devuelve un objeto de tipo Observable, nos tenemos que subscribir para poder recuperar la informacion.
       Pero no nos subscribimos aca, sino que lo retornamos y nos subscribimos en el componente personas.component.ts que es alla donde esta el atributo de
       personas[], para setiarlo
     */
     public cargarPersonas(){
-      return this.httpClient.get('https://listado-personas-c0061-default-rtdb.firebaseio.com/datos.json')
+      let token = this.loginService.getIdToken()
+      return this.httpClient.get('https://listado-personas-c0061-default-rtdb.firebaseio.com/datos.json?auth='+token)
     }
 
     //Guardar personas, como el metogo put nos devuelve un objeto de tipo Observable, nos tenemos que subscribir para poder recuperar la informacion.

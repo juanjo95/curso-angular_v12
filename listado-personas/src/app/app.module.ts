@@ -1,3 +1,4 @@
+import { LoginService } from './login/login.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoggingService } from './LoggingService.service';
 import { FormsModule } from '@angular/forms';
@@ -26,7 +27,7 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule, FormsModule, AppRoutingModule , HttpClientModule
   ],
-  providers: [LoggingService, PersonasService, DataServices],
+  providers: [LoggingService, PersonasService, DataServices, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

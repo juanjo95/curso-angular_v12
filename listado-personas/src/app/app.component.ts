@@ -1,7 +1,5 @@
-import { LoggingService } from './LoggingService.service';
-import { Persona } from './persona.model';
 import { Component, OnInit } from '@angular/core';
-import { PersonasService } from './personas.service';
+import { initializeApp } from 'firebase/app';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +9,14 @@ import { PersonasService } from './personas.service';
 export class AppComponent implements OnInit{
   titulo = 'Listado de personas'
 
+  firebaseConfig = {
+    apiKey: "AIzaSyDwxehQJi4TL7Wl4SKJ4MpHHhqGA7twhvM",
+    authDomain: "listado-personas-c0061.firebaseapp.com",
+  }
+
   constructor(){}
 
-  ngOnInit(){}
+  ngOnInit():void{
+    initializeApp(this.firebaseConfig);
+  }
 }
