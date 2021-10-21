@@ -1,5 +1,5 @@
 import { LoginService } from './login/login.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { LoggingService } from './LoggingService.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -14,6 +14,7 @@ import { PersonasComponent } from './personas/personas.component';
 import { ErrorComponent } from './error/error.component';
 import { DataServices } from './data.service';
 import { LoginComponent } from './login/login.component';
+import { LoginGuardian } from './login/login-guardian.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule, FormsModule, AppRoutingModule , HttpClientModule
   ],
-  providers: [LoggingService, PersonasService, DataServices, LoginService],
+  providers: [LoggingService, PersonasService, DataServices, LoginService, LoginGuardian],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
