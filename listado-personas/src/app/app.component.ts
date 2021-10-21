@@ -1,3 +1,4 @@
+import { LoginService } from './login/login.service';
 import { Component, OnInit } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 
@@ -14,9 +15,17 @@ export class AppComponent implements OnInit{
     authDomain: "listado-personas-c0061.firebaseapp.com",
   }
 
-  constructor(){}
+  constructor(private loginService:LoginService){}
 
   ngOnInit():void{
     initializeApp(this.firebaseConfig);
+  }
+
+  public isAutenticado(){
+    return this.loginService.isAutenticado()
+  }
+
+  public salir(){
+    this.loginService.logout()
   }
 }
