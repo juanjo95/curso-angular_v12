@@ -17,6 +17,7 @@ export class LoginService{
 
           userCredential.user.getIdToken().then(
             token => {
+              console.log(token)
               this.token = token
               this.router.navigate(['/'])
             }

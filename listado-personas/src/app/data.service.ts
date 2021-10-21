@@ -13,13 +13,14 @@ export class DataServices{
       personas[], para setiarlo
     */
     public cargarPersonas(){
-      let token = this.loginService.getIdToken()
+      const token = this.loginService.getIdToken()
       return this.httpClient.get('https://listado-personas-c0061-default-rtdb.firebaseio.com/datos.json?auth='+token)
     }
 
     //Guardar personas, como el metogo put nos devuelve un objeto de tipo Observable, nos tenemos que subscribir para poder recuperar la informacion.
     public guardarPersonas(personas:Persona[]){
-      this.httpClient.put('https://listado-personas-c0061-default-rtdb.firebaseio.com/datos.json',  personas)
+      const token = this.loginService.getIdToken()
+      this.httpClient.put('https://listado-personas-c0061-default-rtdb.firebaseio.com/datos.json?auth='+token,  personas)
       .subscribe(
         response => console.log("Resultado de guardar las Personas " +response),
         error => console.log("Error al guardar Personas "+error)
@@ -28,8 +29,9 @@ export class DataServices{
 
     //Modificar personas, como el metogo put nos devuelve un objeto de tipo Observable, nos tenemos que subscribir para poder recuperar la informacion.
     public modificarPersona(indice:number,persona:Persona){
+      const token = this.loginService.getIdToken()
       let url:string
-      url = 'https://listado-personas-c0061-default-rtdb.firebaseio.com/datos/'+indice+'.json'
+      url = 'https://listado-personas-c0061-default-rtdb.firebaseio.com/datos/'+indice+'.json?auth='+token
       this.httpClient.put(url,persona)
       .subscribe(
         response => console.log("resultado modificar persona: "+response),
@@ -39,8 +41,9 @@ export class DataServices{
 
     //Eliminar personas, como el metogo delete nos devuelve un objeto de tipo Observable, nos tenemos que subscribir para poder recuperar la informacion.
     public eliminarPersona(indice:number){
+      const token = this.loginService.getIdToken()
       let url:string
-      url = 'https://listado-personas-c0061-default-rtdb.firebaseio.com/datos/'+indice+'.json'
+      url = 'https://listado-personas-c0061-default-rtdb.firebaseio.com/datos/'+indice+'.json?auth='+token
       this.httpClient.delete(url)
       .subscribe(
         response => console.log("resultado elimiinar persona: "+response),
