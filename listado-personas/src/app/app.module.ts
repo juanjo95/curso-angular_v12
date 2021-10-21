@@ -1,3 +1,4 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoggingService } from './LoggingService.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ import { FormularioComponent } from './personas/formulario/formulario.component'
 import { PersonasService } from './personas.service';
 import { PersonasComponent } from './personas/personas.component';
 import { ErrorComponent } from './error/error.component';
+import { DataServices } from './data.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,9 @@ import { ErrorComponent } from './error/error.component';
     ErrorComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule
+    BrowserModule, FormsModule, AppRoutingModule , HttpClientModule
   ],
-  providers: [LoggingService, PersonasService],
+  providers: [LoggingService, PersonasService, DataServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
