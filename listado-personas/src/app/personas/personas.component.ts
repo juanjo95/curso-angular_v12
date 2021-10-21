@@ -1,5 +1,5 @@
+import { Persona } from './../persona.model';
 import { Component, OnInit } from '@angular/core';
-import { Persona } from '../persona.model';
 import { PersonasService } from '../personas.service';
 import { Router } from '@angular/router';
 
@@ -18,7 +18,13 @@ export class PersonasComponent implements OnInit {
 
   /* Defina un ngOnInit() método para manejar cualquier tarea de inicialización adicional. */
   ngOnInit(): void {
-    this.personas = this.personasService.personas
+    this.personasService.obtenerPersonas()
+    .subscribe(
+      (personas:any) => {
+        this.personas = personas
+        this.personasService.setPersonas(personas)
+      }
+    )
   }
 
   public agregar():void{
