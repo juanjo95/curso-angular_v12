@@ -26,14 +26,25 @@ export class DataServices{
       )
     }
 
-    //Modificar personas
+    //Modificar personas, como el metogo put nos devuelve un objeto de tipo Observable, nos tenemos que subscribir para poder recuperar la informacion.
     public modificarPersona(indice:number,persona:Persona){
       let url:string
       url = 'https://listado-personas-c0061-default-rtdb.firebaseio.com/datos/'+indice+'.json'
       this.httpClient.put(url,persona)
       .subscribe(
-        response => console.log("resultado modificar persona "+response),
-        error => console.log("error modificar persona "+error)
+        response => console.log("resultado modificar persona: "+response),
+        error => console.log("error modificar persona: "+error)
+      )
+    }
+
+    //Eliminar personas, como el metogo delete nos devuelve un objeto de tipo Observable, nos tenemos que subscribir para poder recuperar la informacion.
+    public eliminarPersona(indice:number){
+      let url:string
+      url = 'https://listado-personas-c0061-default-rtdb.firebaseio.com/datos/'+indice+'.json'
+      this.httpClient.delete(url)
+      .subscribe(
+        response => console.log("resultado elimiinar persona: "+response),
+        error => console.log("error en eliminar persona: "+error)
       )
     }
 
